@@ -2,409 +2,370 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>ASSEGERGS</title>
+  <title>ASSEGERGS - Associação dos Servidores</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      /* Azul sólido extraído da imagem para um encaixe perfeito */
+      --azul-primario: #184486; 
+      --cinza-fundo: #f8fafc;
+      --cinza-card: #eef2f7;
+      --texto-escuro: #334155;
     }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f5f7fa;
-      color: #333;
+      background: #ffffff;
+      color: var(--texto-escuro);
+      line-height: 1.5;
     }
 
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER */
     header {
-      background: #ffffff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      border-bottom: 1px solid #e5e7eb;
+      padding: 20px 0;
+      border-bottom: 1px solid #edf2f7;
     }
 
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
     }
 
-    header img {
-      height: 45px;
-    }
+    .logo-header { height: 55px; }
 
     nav a {
-      margin: 0 15px;
+      margin: 0 12px;
       text-decoration: none;
-      color: #1f4e8c;
+      color: var(--azul-primario);
       font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
     }
 
-    nav a:hover {
-      opacity: 0.7;
-    }
+    .nav-active { border-bottom: 2px solid var(--azul-primario); padding-bottom: 5px; }
 
-    .social a {
+    .header-social a {
       margin-left: 15px;
-      color: #1f4e8c;
-      font-size: 18px;
+      color: #000;
+      font-size: 20px;
+      transition: opacity 0.2s;
+    }
+    
+    .header-social a:hover { opacity: 0.7; }
+
+    /* HERO */
+    .hero {
+      background: var(--azul-primario);
+      color: white;
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
     }
 
-    .section {
-      padding: 80px 40px;
-      background: white;
-      margin-top: 20px;
+    /* Detalhe estético de círculo no fundo */
+    .hero::after {
+        content: "";
+        position: absolute;
+        right: -10%; top: -10%;
+        width: 500px; height: 500px;
+        background: rgba(255,255,255,0.03);
+        border-radius: 50%;
     }
 
-    .grid {
+    .hero-content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin-bottom: 35px;
+      opacity: 0.9;
+      max-width: 480px;
+    }
+
+    .btn-hero {
+      display: inline-block;
+      border: 2px solid white;
+      padding: 12px 24px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .btn-hero:hover { background: rgba(255,255,255,0.1); }
+
+    .hero-right { text-align: center; }
+
+    /* Estilo para integrar a imagem com fundo azul */
+    .hero-logo-white {
+      width: 320px; 
+      height: auto;
+      margin-bottom: 5px;
+      display: inline-block;
+      /* Remove qualquer borda ou sombra residual */
+      border: none;
+      outline: none;
+    }
+
+    .hero-right h2 {
+        font-size: 68px;
+        font-weight: 700;
+        margin-top: -10px;
+    }
+
+    .hero-right span {
+        font-size: 14px;
+        opacity: 0.8;
+        display: block;
+        margin-top: 5px;
+    }
+
+    /* GRID DE CARDS */
+    .features { padding: 80px 0; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 30px;
-      text-align: center;
     }
 
-    .card {
-      padding: 20px;
-      border-right: 1px solid #e5e7eb;  
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .card:last-child {
-      border-right: none;
-    }
-
+    .card { text-align: center; }
     .card i {
+      width: 75px; height: 75px;
+      background: var(--azul-primario);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
       font-size: 28px;
-      color: #1f4e8c;
-      margin-bottom: 10px;
     }
 
     .card h3 {
-      margin-bottom: 8px;
+      color: var(--azul-primario);
+      font-size: 16px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .quick-links {
+    .card p { font-size: 14px; color: #64748b; line-height: 1.6; padding: 0 10px;}
+
+    /* SEÇÃO SOBRE (BOX CINZA) */
+    .about-box {
+      background: var(--cinza-card);
+      border-radius: 12px;
+      padding: 50px;
+      display: grid;
+      grid-template-columns: 1.2fr 1px 1fr;
+      gap: 50px;
+      margin-bottom: 80px;
+    }
+
+    .line-divider { background: #cbd5e1; width: 1px; height: 100%; }
+
+    .about-box h2 {
+      color: var(--azul-primario);
+      font-size: 20px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .about-box p { font-size: 15px; color: #475569; margin-bottom: 25px; }
+
+    .btn-sm {
+      background: var(--azul-primario);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .quick-links-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 15px;
-      margin-top: 20px;
     }
 
-    .quick-links i {
-      font-size: 16px;
-      color: #1f4e8c;
-    }
-
-    .quick-links a {
-      background: #eef3fb;
-      padding: 14px 16px;
-      border-radius: 8px;
+    .quick-links-grid a {
       text-decoration: none;
-      color: #1f4e8c;
-      font-weight: 600;
+      color: var(--azul-primario);
+      font-weight: 500;
+      font-size: 15px;
       display: flex;
       align-items: center;
       gap: 10px;
-      transition: 0.2s;
     }
 
-    .quick-links a:hover {
-      background: #dbe6f7;
-      transform: translateY(-2px);
-    }
-
+    /* FOOTER */
     footer {
-      background: #1f4e8c;
+      background: var(--azul-primario);
       color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 20px;
+      padding: 20px 0;
+      font-size: 13px;
     }
 
-    footer .social a {
-      color: white;
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      opacity: 0.9;
+    }
 
-    /* CONTAINER PADRÃO */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
+    .footer-social-icons {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
-/* HERO NOVO */
-.hero {
-  position: relative;
-  background: linear-gradient(135deg, #1f4e8c, #2f6cc0);
-  color: white;
-  padding: 100px 0;
-  overflow: hidden;
-}
+    .footer-social-icons a { color: white; font-size: 18px; }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
-  top: -100px;
-  right: -100px;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 900px;
-  height: 900px;
-  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent);
-  bottom: -250px;
-  right: -250px;
-}
-
-.hero-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.hero-text {
-  max-width: 520px;
-}
-
-.hero-text h1 {
-  font-size: 52px;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.hero-text p {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.btn {
-  display: inline-block;
-  border: 2px solid white;
-  padding: 12px 20px;
-  border-radius: 6px;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.btn:hover {
-  background: white;
-  color: #1f4e8c;
-}
-
-.hero-right {
-  text-align: center;
-}
-
-.hero-right img {
-  width: 120px;
-  opacity: 0.9;
-}
-
-h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
-.hero-right h2 {
-  font-size: 42px;
-  margin-top: 15px;
-}
-
-.hero-right span {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-/* CARDS COM CÍRCULO */
-.card i {
-  width: 60px;
-  height: 60px;
-  background: #1f4e8c;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 15px;
-}
-
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hero {
-    text-align: center;
-    justify-content: center;
-  }
-
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 30px;
-  }
-
-  .hero-text {
-    max-width: 100%;
-  }
-}
-
-.grid {
-  align-items: stretch;
-}
-
-.about {
-  background: #eef2f7;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.about p {
-  line-height: 1.6;
-  max-width: 500px;
-}
-
+    @media (max-width: 992px) {
+      .hero-content, .features-grid, .about-box { grid-template-columns: 1fr; }
+      .line-divider { display: none; }
+      .hero-text { text-align: center; }
+      .hero-text p { margin: 20px auto; }
+      .hero-logo-white { width: 250px; }
+      .hero-right h2 { font-size: 48px; }
+    }
   </style>
 </head>
-
 <body>
 
 <header>
   <div class="container header-content">
-
-    <img src="logo.png" alt="ASSEGERGS">
-
+    <img src="logo.png" class="logo-header" alt="ASSEGERGS">
     <nav>
-      <a href="#">Início</a>
+      <a href="#" class="nav-active">Início</a>
       <a href="#">A Associação</a>
+      <a href="#">Objetivos</a>
       <a href="#">Benefícios</a>
       <a href="#">Documentos</a>
       <a href="#">Contato</a>
     </nav>
-
-    <div class="social">
-      <a href="https://x.com/assegergs"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://www.instagram.com/assegergsrs/"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/asegergs/"><i class="fab fa-facebook"></i></a>
+    <div class="header-social">
+      <a href="https://x.com/assegergs" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/assegergsrs/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/asegergs/" target="_blank"><i class="fab fa-facebook"></i></a>
     </div>
-
   </div>
 </header>
 
 <section class="hero">
   <div class="container hero-content">
-    
     <div class="hero-text">
       <h1>Juntos somos<br>mais fortes.</h1>
-      <p>
-        A ASSEGERGS representa os servidores efetivos da AGERGS,
-        defendendo direitos, promovendo integração e valorizando o serviço público.
-      </p>
-
-      <a href="#" class="btn">
-        Conheça a ASSEGERGS →
-      </a>
+      <p>A ASSEGERGS representa os servidores efetivos da AGERGS, defendendo direitos, promovendo integração e valorizando o serviço público.</p>
+      <a href="#" class="btn-hero">Conheça a ASSEGERGS →</a>
     </div>
-
     <div class="hero-right">
-      <img src="logo.png" alt="logo">
+      <img src="logo-fundo-azul.png" alt="Logo Assegergs" class="hero-logo-white">
       <h2>Assegergs</h2>
       <span>Associação dos Servidores Efetivos da AGERGS</span>
     </div>
-
   </div>
 </section>
 
-<section class="section">
-  <div class="grid">
+<section class="features">
+  <div class="container features-grid">
     <div class="card">
       <i class="fas fa-users"></i>
       <h3>Representatividade</h3>
-      <p>Defesa dos interesses dos servidores.</p>
+      <p>Atuamos na defesa dos direitos e interesses dos servidores efetivos da AGERGS.</p>
     </div>
-
     <div class="card">
       <i class="fas fa-handshake"></i>
       <h3>Integração</h3>
-      <p>Fortalecimento dos vínculos entre associados.</p>
+      <p>Promovemos a união e o fortalecimento dos vínculos entre os associados.</p>
     </div>
-
     <div class="card">
       <i class="fas fa-file-alt"></i>
       <h3>Informação</h3>
-      <p>Transparência e comunicação relevante.</p>
+      <p>Mantemos nossos associados informados sobre temas relevantes e de interesse da categoria.</p>
     </div>
-
     <div class="card">
       <i class="fas fa-star"></i>
       <h3>Valorização</h3>
-      <p>Reconhecimento do serviço público.</p>
+      <p>Trabalhamos pela valorização do servidor público e pelo reconhecimento do seu papel essencial.</p>
     </div>
   </div>
 </section>
 
-<section class="section about">
-  <div class="container about-grid">
-
+<section class="container">
+  <div class="about-box">
     <div>
       <h2>Sobre a ASSEGERGS</h2>
-      <p>
-        A Associação dos Servidores Efetivos da AGERGS é uma entidade sem fins lucrativos que representa seus associados, promove integração e contribui para o fortalecimento do serviço público.
-      </p>
+      <p>A Associação dos Servidores Efetivos da AGERGS é uma entidade sem fins lucrativos que tem como finalidade representar os servidores efetivos, defender seus direitos, promover a integração e contribuir para o fortalecimento do serviço público.</p>
+      <a href="#" class="btn-sm">SAIBA MAIS</a>
     </div>
+    
+    <div class="line-divider"></div>
 
     <div>
-      <h2>Acesso rápido</h2>
-
-      <div class="quick-links">
+      <h2>Acesso Rápido</h2>
+      <div class="quick-links-grid">
         <a href="#"><i class="fas fa-book"></i> Estatuto</a>
+        <a href="#"><i class="fas fa-balance-scale"></i> Normativos</a>
         <a href="#"><i class="fas fa-handshake"></i> Convênios</a>
-        <a href="#"><i class="fas fa-file-alt"></i> Formulários</a>
+        <a href="#"><i class="fas fa-file-invoice"></i> Formulários</a>
+        <a href="#"><i class="fas fa-bullhorn"></i> Comunicações</a>
         <a href="#"><i class="fas fa-envelope"></i> Fale Conosco</a>
       </div>
     </div>
-
   </div>
 </section>
 
 <footer>
-  <p>© ASSEGERGS - Associação dos Servidores Efetivos da AGERGS</p>
-
-  <div class="social" style="margin-top:10px;">
-    <a href="https://x.com/assegergs"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://www.instagram.com/assegergsrs/"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/asegergs/"><i class="fab fa-facebook"></i></a>
+  <div class="container footer-content">
+    <div>
+      © 2024 ASSEGERGS - Associação dos Servidores Efetivos da AGERGS<br>
+      Todos os direitos reservados.
+    </div>
+    <div class="footer-links">
+      <a href="#">Política de Privacidade</a> | <a href="#">Fale Conosco</a>
+    </div>
+    <div class="footer-social-icons">
+      <span>Siga-nos:</span>
+      <a href="https://x.com/assegergs" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.instagram.com/assegergsrs/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/asegergs/" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
   </div>
 </footer>
 
