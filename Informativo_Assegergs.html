@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {
     margin: 0;
@@ -12,10 +12,51 @@ body {
 
 /* PÁGINA */
 .page {
-    width: 800px;
+    max-width: 800px;
     margin: 40px auto;
-    background: white;
-    padding: 50px;
+    padding: 40px 50px;
+}
+
+@media (max-width: 768px) {
+    
+    .page {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .header .title {
+        font-size: 16px;
+    }
+
+    .header .subtitle {
+        font-size: 12px;
+    }
+
+    .frase-abertura {
+        font-size: 14px;
+        margin: 20px 10px;
+    }
+
+    .texto {
+        font-size: 15px;
+    }
+
+    .eixo-titulo {
+        font-size: 16px;
+    }
+
+    .highlight-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .highlight-ref {
+        margin-top: 5px;
+    }
 }
 
 /* HEADER */
@@ -206,6 +247,37 @@ body {
     font-style: normal;
     opacity: 0.8;
 }
+
+.curiosidade {
+    background: #eef5f0;
+    border-left: 5px solid #00923F;
+    padding: 20px;
+    border-radius: 6px;
+    margin: 30px 0;
+}
+
+.curiosidade-titulo {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.curiosidade-sub {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.curiosidade-texto {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.curiosidade-licao {
+    margin-top: 15px;
+    font-style: italic;
+    font-weight: bold;
+}
 </style>
 
 </head>
@@ -223,6 +295,36 @@ body {
     “Sem dados, você é apenas mais uma pessoa com uma opinião.”
     <span>— W. Edwards Deming</span>
 </div>
+
+<div class="curiosidade">
+
+    <div class="curiosidade-titulo">💊 Curiosidade Regulatória #1</div>
+
+    <div class="curiosidade-sub">
+        A servidora que disse não — e salvou milhares de vidas
+    </div>
+
+    <div class="curiosidade-texto">
+        Em 1960, uma empresa farmacêutica alemã pediu aprovação nos Estados Unidos para comercializar um medicamento já popular na Europa: a talidomida. Indicada para enjoos na gravidez, o remédio parecia inofensivo.
+
+        A FDA designou Frances Kelsey, uma médica canadense recém-contratada, para analisar o pedido — tarefa que parecia rotineira.
+
+        Kelsey não estava convencida. Os estudos apresentados eram insuficientes. Ela pediu mais dados. A empresa pressionou, reclamou aos superiores, tentou desqualificar sua posição. Ainda assim, a aprovação foi mantida em espera por meses.
+
+        Enquanto isso, na Europa, nasciam milhares de bebês com má-formação nos membros. A causa: a talidomida.
+
+        Nos Estados Unidos, praticamente nenhum caso. O país havia sido protegido pela decisão técnica de uma servidora pública que resistiu à pressão e confiou na insuficiência das evidências.
+
+        Em 1962, o presidente John F. Kennedy concedeu pessoalmente a Frances Kelsey uma das mais altas condecorações civis do país.
+    </div>
+
+    <div class="curiosidade-licao">
+        A lição regulatória: pressão para aprovar rápido existe em todo setor. O valor do regulador está em confiar em sua avaliação técnica quando os dados não são suficientes.
+    </div>
+
+</div>
+
+
 <div class="intro">
     O DOE deste período oferece referências relevantes para a pauta da ASSEGERGS.
     Como Instituição de Estado, nossa leitura é técnica: identificamos padrões,
@@ -255,56 +357,50 @@ body {
         </div>
         <div class="highlight-item">
             <div class="highlight-main">
-                → <b>Publicadas</b> as dispensas de Nilton Telichevesky e Eliane Stimamiglio de funções de direção da DTI e da DAF respectivamente
+                → <b>Publicadas</b> dispensas de funções de direção da DTI e da DAF respectivamente
             </div>
         </div>
         <div class="highlight-item">
             <div class="highlight-main">
                 → <b>CPI das Concessões de Rodovias aprova</b> convocação do conselheiro Lucas Fuhr
             </div>
-        </div>
-        <div class="highlight-item">
-            <div class="highlight-main">
-                → <b>AGERGS publica</b> aviso de licitação para novo Call Center multicanal (PE 9100/2026)
-            </div>
-        </div>
-
+        </div>     
 
         <div class="highlight-item">
             <div class="highlight-main">
-                → <b>Comissão da Assembleia propõe convocação</b> do Conselheiro-Presidente Marcelo Spilki para audiência pública sobre Corsan/Aegea em Caçapava do Sul
+                → <b>Participação de servidor de carreira</b> em fórum internacional de reguladores em Brasília
             </div>
         </div>
         
+        <br>
 
-        <div class="highlight-item">
-            <div class="highlight-main">
-                → <b>Presidência autoriza</b> participação em fórum internacional de reguladores em Brasília
-            </div>
+        <div class="orgao">Contrato DMLU</div>
+
+        <div class="texto">
+            A AGERGS e a Prefeitura de Porto Alegre, com a interveniência do Departamento Municipal de Limpeza Urbana (DMLU), 
+            formalizaram o Contrato nº 001314-3900/25-2 para a regulação e fiscalização dos serviços de resíduos sólidos na capital.
+            O objeto do acordo abrange a fiscalização técnica e a regulação da concessão administrativa dos serviços de coleta, triagem, tratamento e disposição final de resíduos sólidos urbanos e da construção civil. 
+            A Agência será responsável pelo controle dos indicadores de desempenho, pela auditoria anual de investimentos e pela análise do equilíbrio econômico-financeiro da parceria.
+            Na fase inicial, com duração de um ano, será executada a etapa preliminar do contrato, voltada à estruturação do ambiente regulatório. Serão realizados estudos técnicos, diagnósticos e propostas de melhorias.
+            O termo foi assinado em 02 de abril de 2026 pelo Conselheiro-Presidente Marcelo Spilki.
+        </div>
+        <br>
+        <div class="orgao">Dispensas na DTI e DAF</div>
+
+        <div class="texto">
+            Conforme já publicado na <a href="./20260430 - Nota Reconhecimento Nilton, Eliane e Mesquita.pdf" target="_blank">nota de reconhecimento encaminhada</a> pela ASSEGERGS, 
+            foram efetivadas as dispensas dos colegas servidores de carreira Nilton Telichevesky e Eliane Stimamiglio de suas funções de direção. 
+            Nilton deixa a DTI após anos de liderança na modernização tecnológica, 
+            enquanto Eliane encerra um ciclo marcado pela participação no destravamento das promoções e por reformas e melhorias da sede.
+        </div>
+        <br>
+        <div class="orgao">Convocação em CPI e Participação de Servidores de carreira em Fórum Internacional</div>
+
+        <div class="texto">
+            A última sessão da CPI das concessões de rodovias aprovou o requerimento nº 104/2026 para a convocação do Conselheiro Lucas Fuhr a fim de participar de futura sessão da Comissão. Falando em participação, destacamos
+            a participação dos servidores de carreira Carlos Alvim, Diretor-Geral, e Diego Aguiar, DTM, na 1ª Cumbre da ALART, em Brasília. O evento internacional debateu regulação de transportes e PPPs.
         </div>
 
-
-        <div class="highlight-item">
-            <div class="highlight-main">
-                → <b>Governo do Estado abre</b> crédito suplementar de R$ 920.000,00 para remuneração de pessoal da AGERGS
-            </div>            
-        </div>
-
-        <div class="highlight-item">
-            <div class="highlight-main">
-                → <b>Direção-Geral publica</b> portarias (14 a 25/2026) sobre fiscalização de contratos
-            </div>
-        </div>
-        <div class="highlight-item">
-            <div class="highlight-main">
-                → <b>Conselho Superior indefere</b> pedidos da FIERGS e mantém revisão tarifária da Sulgás via RED 886/2026
-            </div>
-        </div>
-                <div class="highlight-item">
-            <div class="highlight-main">
-                → <b>Agência publica</b> resoluções tarifárias RED 884 e 885/2026 (rodovias e transporte)
-            </div>
-        </div> 
     </div>
     
 
@@ -324,7 +420,7 @@ body {
         <div class="orgao">FEPAM registra desistência de candidata e servidor da AGERGS é nomeado em outra instituição</div>
 
         <div class="texto">
-            Destaca-se a noameação tornada sem efeito de um cargo de Técnico em Química aprovado em concurso público, 
+            Destaca-se a nomeação tornada sem efeito de um cargo de Técnico em Química aprovado em concurso público, 
             como registrado pela FEPAM (DOE 22/04/2026, Protocolo 2026001412478). 
             Soma-se a esse fato a mobilidade de servidores técnicos entre órgãos e Poderes. <br>
             O DOAL da ALRS registra a <u>nomeação de servidor da AGERGS para o cargo de Técnico Legislativo na Assembleia Legislativa</u> (DOAL 27/04/2026, p. ADM 2), 
@@ -364,8 +460,8 @@ body {
         <div class="orgao">Saúde — Especialização no Instituto Albert Einstein e Pós-Graduação na USP</div>
 
         <div class="texto">
-            A Secretaria da Saúde (SES) autorizou o afastamento de servidora (Engenheira Química) para cursar pós-graduação em Engenharia Clínica no Instituto Israelita de Ensino e Pesquisa Albert Einstein, em São Paulo, com ônus para o Estado de diárias e passagens aéreas. (DOE 30/04, Prot. 2026001416751).
-            A SES também autorizou outra servidora (Especialista em Infraestrutura) a cursar pós-graduação em Vigilância Sanitária de Alimentos na USP, também com ônus para o Estado. (DOE 30/04, Prot. 2026001417807).
+            A Secretaria da Saúde (SES) autorizou o afastamento de servidora (Engenheira Química) para cursar pós-graduação em Engenharia Clínica no Instituto Israelita de Ensino e Pesquisa Albert Einstein, em São Paulo, com ônus para o Estado de diárias e passagens aéreas. (DOE 29/04, Prot. 2026001416751).
+            A SES também autorizou o afastamento de outra servidora (Especialista em Infraestrutura) para participar de imersão no curso de especialização em Ciência de Dados e Inteligência Artificial, em Brasília, também com custeio de diárias e passagens pelo Estado (DOE 30/04, Prot. 2026001417807)
         </div>        
                 <br>
         <div class="orgao">SPGG/Instituto Trajetórias — Mestrado Internacional</div>
@@ -431,7 +527,7 @@ body {
              e portuária no âmbito do Programa HidroPorto 4.0.
         </div><br>
 
-        <div class="protocolo">Protocolo 2026001413401 · DOE 22/04</div>
+        <div class="protocolo">Protocolo 2026001413401 · DOE 23/04</div>
         <div class="orgao">FEPAM — Estudo de Qualidade de Solos (R$ 339.166,05)</div>
 
         <div class="texto">
@@ -440,7 +536,7 @@ body {
             dos solos no Estado do Rio Grande do Sul.
         </div><br>
 
-        <div class="protocolo">Protocolo 2026001413757 (Dispensa de Licitação) e 2026001413727 (Súmula do Contrato) · DOE 22/04</div>
+        <div class="protocolo">Protocolo 2026001413757 (Dispensa de Licitação) e 2026001413727 (Súmula do Contrato) · DOE 24/04</div>
         <div class="orgao">SEDUC — Avaliação Diagnóstica de Fluência (R$ 550.202,60)</div>
 
         <div class="texto">
