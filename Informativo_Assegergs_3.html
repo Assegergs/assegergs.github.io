@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    margin: 0;
+    background: #e6e6e6;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* PÁGINA */
+.page {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px 50px;
+}
+
+@media (max-width: 768px) {
+    
+    .page {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .header .title {
+        font-size: 16px;
+    }
+
+    .header .subtitle {
+        font-size: 12px;
+    }
+
+    .frase-abertura {
+        font-size: 14px;
+        margin: 20px 10px;
+    }
+
+    .texto {
+        font-size: 15px;
+    }
+
+    .eixo-titulo {
+        font-size: 16px;
+    }
+
+    .highlight-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .highlight-ref {
+        margin-top: 5px;
+    }
+
+    .materia {
+        padding: 20px;
+    }
+
+    .materia-titulo {
+        font-size: 17px;
+    }
+}
+
+/* HEADER */
+.header {
+    background: #1f3f63;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    border-top: 6px solid #d97904;
+    margin-bottom: 30px;
+}
+
+.header .small {
+    font-size: 11px;
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+.header .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.header .subtitle {
+    font-size: 13px;
+}
+
+/* INTRO */
+.intro {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* EIXOS */
+.eixo {
+    margin-top: 30px;
+}
+
+.eixo-numero {
+    font-size: 11px;
+    color: #1f3f63;
+    font-weight: bold;
+}
+
+.eixo-titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.linha {
+    height: 3px;
+    background: #d97904;
+    margin-bottom: 15px;
+}
+
+/* CARDS */
+.card {
+    padding: 20px;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+
+.materia {
+    padding: 24px;
+    border-radius: 6px;
+    margin: 24px 0;
+}
+
+.materia-verde {
+    background: #00923F;
+    color: white;
+}
+
+.materia-verde a {
+    color: white;
+}
+
+.materia-chapeu {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    opacity: 0.75;
+    text-transform: uppercase;
+}
+
+.materia-titulo {
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 14px;
+}
+
+.materia-resumo {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.materia-divisor {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    margin: 18px 0;
+}
+
+.materia-verde .materia-divisor {
+    border-top-color: rgba(255, 255, 255, 0.35);
+}
+
+.nota-editorial {
+    margin-top: 14px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.materia-lista {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 8px 0 16px 18px;
+    padding: 0;
+}
+
+.materia-lista li {
+    margin: 4px 0;
+}
+
+.edicao-anterior {
+    display: none;
+}
+
+.amarelo {
+    background: #f3e4c3;
+}
+
+.azul {
+    background: #dbe5f1;
+}
+
+.branco {
+    background: #ffffff;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.protocolo {
+    font-size: 12px;
+    color: #555;
+}
+
+.orgao {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.texto {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+
+.quote {
+    margin-top: 10px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* FOOTER BOX */
+.footer-box {
+    background: #1f3f63;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.footer-box h3 {
+    margin: 0 0 10px 0;
+}
+
+.footer-box p {
+    font-size: 13px;
+}
+
+/* RODAPÉ */
+.footer {
+    text-align: center;
+    font-size: 11px;
+    color: #777;
+    margin-top: 10px;
+}
+
+.eixo-agergs {
+    margin-top: 40px;
+}
+
+.eixo-agergs-box {
+    background: #00923F;
+    color: white;
+    padding: 30px;
+    border-radius: 6px;
+    text-align: justify;
+}
+
+.eixo-agergs-titulo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.eixo-agergs-sub {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+/* highlights */
+.highlight-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.highlight-main {
+    flex: 1;
+    text-align: justify;
+}
+
+.highlight-ref {
+    white-space: nowrap;
+    opacity: 0.9;
+}
+
+.highlight-item b {
+    font-weight: bold;
+}
+
+.highlight-item span {
+    opacity: 0.9;
+}
+.frase-abertura {
+    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 25px auto 30px auto;
+}
+
+.frase-abertura span {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+    font-style: normal;
+    opacity: 0.8;
+}
+
+.curiosidade {
+    background: #eef5f0;
+    border-left: 5px solid #00923F;
+    padding: 20px;
+    border-radius: 6px;
+    margin: 30px 0;
+}
+
+.curiosidade-titulo {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.curiosidade-sub {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.curiosidade-texto {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.curiosidade-licao {
+    margin-top: 15px;
+    font-style: italic;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="header">
+    <div class="small">ASSEGERGS</div>
+    <div class="title">📰 INFORMATIVO ESTRATÉGICO Nº 03</div>
+    <div class="subtitle">Diário Oficial do Estado · Junho de 2026</div>
+</div>
+<div class="frase-abertura">
+    “O conhecimento é, em si mesmo, poder.”
+    <span>— Francis Bacon</span>
+</div>
+
+<!-- <div class="curiosidade">
+
+    <div class="curiosidade-titulo">💊 Curiosidade Regulatória #1</div>
+
+    <div class="curiosidade-sub">
+        A servidora que disse não — e salvou milhares de vidas
+    </div>
+
+    <div class="curiosidade-texto">
+        Em 1960, uma empresa farmacêutica alemã pediu aprovação nos Estados Unidos para comercializar um medicamento já popular na Europa: a talidomida. Indicada para enjoos na gravidez, o remédio parecia inofensivo.
+
+        A FDA designou Frances Kelsey, uma médica canadense recém-contratada, para analisar o pedido — tarefa que parecia rotineira.
+
+        Kelsey não estava convencida. Os estudos apresentados eram insuficientes. Ela pediu mais dados. A empresa pressionou, reclamou aos superiores, tentou desqualificar sua posição. Ainda assim, a aprovação foi mantida em espera por meses.
+
+        Enquanto isso, na Europa, nasciam milhares de bebês com má-formação nos membros. A causa: a talidomida.
+
+        Nos Estados Unidos, praticamente nenhum caso. O país havia sido protegido pela decisão técnica de uma servidora pública que resistiu à pressão e confiou na insuficiência das evidências.
+
+        Em 1962, o presidente John F. Kennedy concedeu pessoalmente a Frances Kelsey uma das mais altas condecorações civis do país.
+    </div>
+
+    <div class="curiosidade-licao">
+        A lição regulatória: pressão para aprovar rápido existe em todo setor. O valor do regulador está em confiar em sua avaliação técnica quando os dados não são suficientes.
+    </div>
+
+</div> -->
+
+
+
+
+
+
+<div class="materia materia-verde">
+    <div class="materia-chapeu">🏛️ AGERGS</div>
+    
+
+    <div class="orgao">🔄 Mudança na Diretoria de Transportes e Mobilidade</div>
+    <div class="texto">
+        O Governador formalizou a dispensa de <b>Airton Roberto Rehbein</b> e a designação da advogada
+        <b>Márcia Marson Fonseca</b> para o cargo de Diretora da DTM.
+    </div>
+    <div class="nota-editorial">
+        O Contador Airton estava como cedido no cargo, foi servidor da AGERGS e possuía longa história
+        no setor de transportes em razão da sua atuação no TCE-RS.
+    </div>
+
+    <div class="materia-divisor"></div>
+
+    <div class="orgao">🧭 Grupo de Trabalho sobre Sanções</div>
+    <div class="texto">
+        A Portaria AGERGS nº 45/2026 designa 3 servidores de carreira para disciplinar a aplicação de
+        <b>multas às concessionárias de rodovias</b>. 
+
+    </div>
+            <div class="nota-editorial">
+        Este ato pode ser uma resposta técnica direta às críticas
+        da CPI sobre a resolutividade da Agência frente às empresas privadas.
+        </div>
+
+    <div class="materia-divisor"></div>
+
+    <div class="orgao">🌟 Aposentadoria de Nilton Telichevesky</div>
+    <div class="texto">
+        Foi publicada em 29 de maio a aposentadoria do Especialista em Regulação Nilton Telichevesky.
+    </div>
+    <div class="nota-editorial">
+        Este ato encerra formalmente o ciclo de um servidor que contribuiu muito com o serviço público desde
+        o primeiro concurso da AGERGS. Seu legado técnico, com implantação do software QLIK Sense,
+        ampliação do SIA/SINTRA e modernização de TIC, já foi objeto de nota de reconhecimento pela associação.
+    </div>
+</div>
+
+<div class="materia azul">
+    <div class="materia-chapeu">👥 Outras Carreiras</div>
+
+    <div class="orgao">🛡️ Fundação Proteção atualiza política contra assédio moral</div>
+    <div class="texto">
+        A Fundação de Proteção Especial do Rio Grande do Sul (FUNDAÇÃO PROTEÇÃO) publicou, na edição do
+        Diário Oficial de 06 de maio de 2026, a Resolução nº 01/2026, que atualiza a Política de Prevenção
+        e Combate ao Assédio Moral e Constrangimento Moral no ambiente de trabalho. A normativa, que se
+        aplica a servidores efetivos, detentores de cargos em comissão e estagiários, visa consolidar um
+        ambiente de trabalho saudável e <u>livre de práticas abusivas</u>. Dentre as condutas reprováveis listadas,
+        o documento ressalta o assédio moral, definindo-o como "toda e qualquer conduta abusiva (gestos,
+        palavras, comportamentos, atitudes) que, de forma repetitiva e prolongada, de forma <u>virtual ou
+        presencial</u>, atente contra a dignidade ou integridade física ou psíquica de uma pessoa, atente contra
+        a liberdade, ameaçando seu emprego ou degradando o ambiente de trabalho".
+    </div>
+
+    <div class="materia-divisor"></div>
+
+    <div class="materia-titulo">⚖️ PGE nomeia novos servidores</div>
+
+    <div class="texto">
+        No dia 08 de maio, o Governador publicou uma série de nomeações para cargos efetivos do Quadro
+        de Pessoal dos Serviços Auxiliares da Procuradoria-Geral do Estado (PGE), em estágio probatório
+        (Grau A, Nível I).
+    </div>
+
+    <ul class="materia-lista">
+        <li>7 Técnicos Administrativos</li>
+        <li>4 Analistas Contadores</li>
+    </ul>
+
+    <div class="nota-editorial">
+        Estas nomeações para a PGE demonstram que outros órgãos técnicos conseguem repor seus quadros,
+        enquanto isso a AGERGS já encaminhou lista dos próximos nomeados e até o momento não ocorreu a publicação.
+        A última nomeação da AGERGS foi em 13 de fevereiro. É recorrente o assunto na CPI das concessões de rodovias,
+        em que questionam a capacidade laboral da Agência visto que está com quadro reduzido, mesmo com a ampliação
+        das vagas pela nova Lei de dez/24. Esse é um dos maiores desafios da fiscalização dos 248 municípios em que
+        o saneamento é regulado pela Agência. Entre ingressos e exonerações, o número de servidores efetivos está
+        estagnado em aproximadamente 73 desde o ano de 2023.
+    </div>
+</div>
+
+
+
+<div class="materia amarelo">
+    <div class="materia-chapeu">🚗 Fiscalização</div>
+    <div class="materia-titulo">⏱️ Conselho Superior regulamenta indenização para uso de veículo particular</div>
+
+    <div class="texto">
+        Na Sessão Ordinária nº 14/2026, o Conselho Superior aprovou o sistema de indenização por quilometragem
+        para servidores que utilizarem carros próprios em atividades externas. O relator Ricardo Giuliani
+        fundamentou o voto na <b>ausência de frota oficial</b> e na necessidade de agilizar e viabilizar
+        a fiscalização em 248 municípios.
+    </div>
+
+    <div class="texto">
+        A Conselheira Luciana Luso de Carvalho votou contra a previsão de "parcela fixa" para a indenização, 
+        defendendo apenas a parcela sujeita a medição.
+    </div>
+
+    <div class="nota-editorial">
+        A celeridade observada na tramitação do processo demonstra a capacidade administrativa da instituição para conduzir matérias 
+        que considera prioritárias. Nesse contexto, surge o debate sobre a possibilidade de adoção de tratamento semelhante 
+        para pautas de interesse dos servidores e estagiários, como a revisão do vale-alimentação e da bolsa de estágio.
+    </div>
+</div>
+
+<div class="materia azul">
+    <div class="materia-chapeu">🎓 Valorização e desenvolvimento</div>
+    
+
+    <div class="orgao">📈 Regulamentação de Promoções na PGE</div>
+    <div class="texto">
+        Publicada no DOE de <b>05 de maio</b>, a Resolução nº 304/2026 estabelece critérios claros de antiguidade
+        e merecimento para as carreiras auxiliares da Procuradoria-Geral do Estado.
+    </div>
+    <div class="nota-editorial">
+        Por outro lado, a norma da Agência encontra-se pendente de aprovação e publicação.
+    </div>
+
+    <div class="materia-divisor"></div>
+
+    <div class="orgao">🌐 Qualificação internacional</div>
+    <div class="texto">
+        Foi autorizada a participação de <b>quadro não efetivo</b> da AGERGS no programa InfraLeaders,
+        em Toronto, Canadá.
+    </div>
+    <div class="nota-editorial">
+        A associação observa que esse padrão de acesso a instituições de ponta seja estendido aos especialistas
+        de carreira. A última qualificação internacional de um servidor efetivo foi em outubro de 2023.
+    </div>
+</div>
+
+<div class="materia amarelo">
+    <div class="materia-chapeu">💧 Saneamento e mercado</div>
+    <div class="materia-titulo">
+        <a href="https://timesbrasil.com.br/empresas-e-negocios/rombo-contabil-5-bilhoes-aegea-afeta-itausa-adia-planos-ipo/" target="_blank">
+            ⚠️ Reapresentação de balanços reduziu em cerca de R$ 5 bilhões o patrimônio líquido consolidado da Aegea
+        </a>
+    </div>
+
+    <div class="texto">
+        A reapresentação de balanços reduziu o patrimônio líquido consolidado da Aegea de R$ 11,4 bilhões
+        para R$ 6,4 bilhões.
+    </div>
+
+    <div class="nota-editorial">
+        O caso merece atenção pelo peso da companhia no setor de saneamento e pelo
+        impacto potencial de informações contábeis relevantes sobre a análise regulatória, financeira e
+        institucional dos serviços delegados.
+    </div>
+</div>
+
+<div class="materia amarelo">
+    <div class="materia-chapeu">🗣️ CPI das concessões</div>
+    <div class="materia-titulo">🎙️ Depoimento da Conselheira Luciana Luso</div>
+
+    <div class="texto">
+        A oitiva da conselheira Luciana Luso de Carvalho, realizada em 20 de maio de 2026, trouxe
+        esclarecimentos fundamentais sobre os limites da atuação da Agência e a precarização das condições de trabalho.
+    </div>
+
+    <div class="materia-divisor"></div>
+
+    <div class="orgao">🧩 Divisão de atribuições e "confusão" de governança</div>
+    <div class="texto">
+        A conselheira enfatizou que a AGERGS não formula políticas públicas nem participa da modelagem dos editais,
+        cabendo-lhe a regulação econômica, o atendimento ao usuário, a fiscalização de parâmetros de desempenho, 
+        do nível de serviço e cláusulas regulatórias.
+        A fiscalização das obras e a aprovação de projetos executivos são competências exclusivas do
+        <b>Poder Concedente</b>, via SELT e SERG. Essa separação foi criticada pelo relator, deputado Miguel Rosseto,
+        que a classificou como uma "confusão gigantesca".
+    </div>
+
+    <div class="materia-divisor"></div>
+
+    <div class="orgao">🏗️ Déficit estrutural e formação de reguladores</div>
+    <div class="texto">
+        Luciana afirmou que a AGERGS opera no limite, com apenas <b>73 servidores efetivos</b> para regular
+        10 setores complexos, apesar de a lei prever um quadro de 160. Também alertou que "ninguém sai da faculdade
+        sabendo fazer regulação", sendo necessários pelo menos três anos de vivência para formar um especialista.
+    </div>
+
+    <div class="materia-divisor"></div>
+
+    <div class="orgao">📉 Crise salarial e evasão</div>
+    <div class="texto">
+        A conselheira destacou que a carreira enfrenta desvalorização histórica, tendo ficado
+        <b>16 anos sem reajuste no vencimento básico</b> até 2025. Isso resulta em perda constante de talentos
+        para outras agências nacionais ou outros Poderes. Como exemplo da distorção, citou que um estagiário
+        na AGERGS recebe <b>R$ 2,77 por hora</b>, enquanto na Assembleia Legislativa o valor chega a <b>R$ 11,90</b>.
+    </div>
+
+    <div class="materia-divisor"></div>
+
+    <div class="orgao">🗳️ Voto vencido no Bloco 2</div>
+    <div class="texto">
+        Luciana explicou sua posição contrária à figura do <b>Verificador Independente</b> no modelo do Bloco 2,
+        em que a consultoria é paga pela própria concessionária. Para ela, esse arranjo compromete a independência
+        da fiscalização, embora o entendimento da maioria do Conselho Superior tenha sido pela manutenção do modelo
+        da ANTT.
+    </div>
+
+    <div class="materia-divisor"></div>
+
+    <div class="orgao">🚨 Ameaça de extinção</div>
+    <div class="texto">
+        Em um momento de tensão, o presidente da CPI, deputado Paparico Bacchi, manifestou que a falta de resolutividade
+        da Agência, causada pela interferência do governo, poderia levar ao questionamento sobre sua própria existência
+        ou substituição pelo Ministério Público. A conselheira Luciana rebateu, afirmando que a solução é o
+        <b>fortalecimento da instituição</b> e não sua extinção, o que seria "péssimo para o estado e para o usuário".
+    </div>
+</div>
+
+<div class="materia branco">
+    <div class="materia-titulo">🤝 Nosso APOIO!</div>
+    <div class="nota-editorial">
+        A atuação da Conselheira Luciana Luso perante a CPI das Concessões Rodoviárias reflete o valor da inteligência técnica 
+        acumulada em nossa carreira. Ao depor sob a perspectiva de quem integra o quadro efetivo há 24 anos, ela ofereceu 
+        à sociedade gaúcha o conhecimento das engrenagens pela qual se opera a regulação gaúcha.
+        Sua postura firme em favor da autonomia regulatória e o alerta honesto sobre o déficit de pessoal reafirmam o compromisso 
+        dos servidores concursados: a regulação gaúcha só é forte e independente quando preserva sua memória institucional e valoriza 
+        os especialistas que a sustentam.
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer-box">
+    <h3>💬 Sua voz constrói esta curadoria</h3>
+    <p>
+        Você leu algo no Diário Oficial ou na imprensa na última semana que afeta diretamente 
+        o nosso trabalho na AGERGS?
+        Compartilhe com a diretoria.
+    </p>
+</div>
+
+<div class="footer">
+    ASSEGERGS — Diretoria · Junho de 2026
+</div>
+
+</div>
+
+</body>
+</html>
